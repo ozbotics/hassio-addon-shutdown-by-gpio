@@ -1,0 +1,35 @@
+# Shutdown by GPIO
+
+[![Release][release-shield]][release] ![Project Stage][project-stage-shield] ![Project Maintenance][maintenance-shield]
+
+
+Shutdown by GPIO by Ozbotics.
+
+## About
+
+This addon provides support for gracefull shutdown (or reboot) when a GPIO pin is pulsed.
+This allows attached UPS modules or simple momentary switches to initiate safe shutdowns.
+
+It provides configuration options to specify:
+
+- Shutdown GPIO Pin (the pin your button or device is connected to)
+- Trigger Level (the state HI | LOW of the pin, that triggers the shutdown)
+- The minimum length of pulse to trigger reboot (short press)
+- The minimum length of pulse to trigger shutdown (long press)
+- The amount of time to pause before actually performing shutdown/reboot (handy when debugging)
+- Status LED GPIO Pin (the pin your Status LED is connected to)
+
+[Click here for the full documentation][docs]
+
+{% if channel == "edge" %}
+## WARNING! THIS IS AN EDGE VERSION!
+{% endif %}
+{% if channel == "beta" %}
+## WARNING! THIS IS A BETA VERSION!
+
+{% endif %}
+[docs]: {{ repo }}/blob/{{ version }}/README.md
+[maintenance-shield]: https://img.shields.io/maintenance/yes/2019.svg
+[project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg
+[release-shield]: https://img.shields.io/badge/version-{{ version }}-blue.svg
+[release]: {{ repo }}/tree/{{ version }}

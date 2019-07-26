@@ -1,0 +1,42 @@
+{
+  "name": "Shutdown by GPIO",
+  "version": "dev",
+  "slug": "shutdown-by-gpio",
+  "description": "Initiate shutdown when GPIO pin is triggered",
+  "url": "https://github.com/ozbotics/hassio-addon-shutdown-by-gpio",
+  "startup": "initialize",
+  "arch": [
+      "armv7"
+  ],
+  "boot": "auto",
+  "hassio_api": true,
+  "hassio_role": "manager",
+  "gpio": true,
+  "privileged": [
+    "SYS_RAWIO"
+  ],
+  "devices": [
+    "/dev/mem:/dev/mem:rwm"
+  ],
+  "apparmor": false,
+  "options": {
+    "log_level": "info",
+    "shutdown_button_pin": 4,
+    "shutdown_trigger_level": 1,
+    "boot_led_pin": 17,
+    "reboot_pulse_min_ms": 200,
+    "shutdown_pulse_min_ms": 600,
+    "pause_before_reboot_secs": 60,
+    "pause_before_shutdown_secs": 60
+  },
+  "schema": {
+    "log_level": "match(^(trace|debug|info|notice|warning|error|fatal)$)",
+    "shutdown_button_pin": "int(1,27)",
+    "shutdown_trigger_level": "int(0,1)",
+    "boot_led_pin": "int(1,27)",
+    "reboot_pulse_min_ms": "int(10,1000)",
+    "shutdown_pulse_min_ms": "int(100,10000)",
+    "pause_before_reboot_secs": "int(0,1000)",
+    "pause_before_shutdown_secs": "int(0,1000)"
+  }
+}
